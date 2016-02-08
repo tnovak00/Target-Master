@@ -37,6 +37,7 @@ var music;
 var explode;
 var emitter;
 var greymon;
+var text;
 
 function create() {
    
@@ -53,7 +54,7 @@ function create() {
     game.add.sprite(290, 40, 'talk');
     
     //Timer
-    game.time.events.add(Phaser.Timer.MINUTE * 1, youLose, this);
+    game.time.events.add(Phaser.Timer.MINUTE * .35, youLose, this);
     
     //Adding targets
     targets = game.add.group();
@@ -293,12 +294,8 @@ function youLose() {
 
     var style = { font: "bold 32px Arial", fill: "#FE2E2E", boundsAlignH: "center", boundsAlignV: "middle" };
 
-    //  The Text is positioned at 0, 100
-    text = game.add.text(0, 0, "you lose", style);
+    text = game.add.text(300, 120, "you lose", style);
     text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
-
-    //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
-    text.setTextBounds(0, 100, 800, 100);
 
 }
 
@@ -310,12 +307,9 @@ function youWin() {
 
     var style = { font: "bold 32px Arial", fill: "#fff", boundsAlignH: "center", boundsAlignV: "middle" };
 
-    //  The Text is positioned at 0, 100
-    text = game.add.text(0, 0, "you win", style);
+    text = game.add.text(300, 120, "you win", style);
     text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
-    //  We'll set the bounds to be from x0, y100 and be 800px wide by 100px high
-    text.setTextBounds(0, 100, 800, 100);
     game.add.sprite(300, 200, 'win');
 
 }
